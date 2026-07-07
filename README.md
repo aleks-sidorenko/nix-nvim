@@ -59,6 +59,13 @@ programs.nix-nvim = {
 };
 ```
 
+## Real-world example
+
+For a complete production setup, see [`aleks-sidorenko/nix-config`](https://github.com/aleks-sidorenko/nix-config) — it consumes this flake across NixOS, nix-darwin, and home-manager systems. The integration is a thin home-manager wrapper that maps its own role/option system onto `programs.nix-nvim` and layers [stylix](https://github.com/nix-community/stylix) theming on top:
+
+- Flake input: [`flake.nix`](https://github.com/aleks-sidorenko/nix-config/blob/master/flake.nix) (`nix-nvim` with `inputs.nixpkgs.follows = "nixpkgs"`)
+- Wrapper module: [`modules/home/cli/editors/nvim/default.nix`](https://github.com/aleks-sidorenko/nix-config/blob/master/modules/home/cli/editors/nvim/default.nix)
+
 ## Reproducibility note
 
 Consumers should always set `inputs.nixpkgs.follows = "nixpkgs"` so that nix-nvim builds against the same `nixpkgs` revision as the rest of the system. Without this, nix-nvim pins its own `nixpkgs`, which increases closure size and may produce a Neovim built against different system libraries.
