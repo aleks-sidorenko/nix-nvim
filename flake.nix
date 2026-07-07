@@ -22,7 +22,6 @@
 
       perSystem =
         {
-          config,
           pkgs,
           system,
           ...
@@ -35,8 +34,11 @@
 
           formatter = pkgs.nixfmt-tree;
 
-          checks.package = config.packages.default;
-
+          # No `checks` that build the package: `nix flake check --all-systems`
+          # would then try to realise every system's derivation on one runner
+          # (e.g. building the aarch64-darwin package on an x86_64-linux CI box),
+          # which fails with a platform mismatch. Actual builds are covered by
+          # the dedicated `build` CI job and `nix build`/`nix run`.
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               nix
