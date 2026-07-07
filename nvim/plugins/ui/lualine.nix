@@ -1,4 +1,4 @@
-_: {
+{ config, ... }: {
   plugins.lualine = {
     enable = true;
     settings = {
@@ -14,7 +14,7 @@ _: {
             "alpha"
           ];
         };
-        theme = "catppuccin";
+        theme = config.theme;
       };
       sections = {
         lualine_a = [

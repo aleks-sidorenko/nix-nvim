@@ -1,4 +1,5 @@
-{
+{ config, lib, ... }:
+lib.mkIf (config.theme == "catppuccin") {
   colorschemes = {
     catppuccin = {
       enable = true;
