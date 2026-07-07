@@ -28,5 +28,9 @@
             module = ./nvim;
           };
         };
+
+      flake.homeManagerModules.default = import ./modules/home-manager {
+        inherit (inputs) nixvim;
+      };
     };
 }
