@@ -4,3 +4,7 @@ result-*
 
 # direnv
 .direnv/
+
+# Internal planning docs (kept local, not published)
+docs/plans/
+docs/specs/
