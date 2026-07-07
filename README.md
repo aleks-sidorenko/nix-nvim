@@ -1,5 +1,7 @@
 # nix-nvim
 
+[![CI](https://github.com/aleks-sidorenko/nix-nvim/actions/workflows/ci.yml/badge.svg)](https://github.com/aleks-sidorenko/nix-nvim/actions/workflows/ci.yml)
+
 A configurable, batteries-included Neovim distribution built with [nixvim](https://github.com/nix-community/nixvim). It ships sane defaults for editing, LSP, and UI out of the box, and exposes opt-in toggles for language support and AI assistants — usable as a standalone package or as a `programs.nix-nvim` home-manager module.
 
 ## Try it
