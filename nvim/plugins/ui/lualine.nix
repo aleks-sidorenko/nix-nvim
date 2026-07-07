@@ -14,7 +14,7 @@
             "alpha"
           ];
         };
-        theme = config.theme;
+        inherit (config) theme;
       };
       sections = {
         lualine_a = [

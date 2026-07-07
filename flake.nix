@@ -21,11 +21,31 @@
       ];
 
       perSystem =
-        { pkgs, system, ... }:
+        {
+          config,
+          pkgs,
+          system,
+          ...
+        }:
         {
           packages.default = nixvim.legacyPackages.${system}.makeNixvimWithModule {
             inherit pkgs;
             module = ./nvim;
+          };
+
+          formatter = pkgs.nixfmt-tree;
+
+          checks.package = config.packages.default;
+
+          devShells.default = pkgs.mkShell {
+            packages = with pkgs; [
+              nix
+              just
+              git
+              statix
+              deadnix
+              nixfmt-tree
+            ];
           };
         };
 

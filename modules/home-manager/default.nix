@@ -71,7 +71,7 @@ in
                 copilot.enable = lib.mkIf cfg.ai.copilot.enable (lib.mkForce true);
                 claude-code.enable = lib.mkIf cfg.ai.claude-code.enable (lib.mkForce true);
               };
-              theme = cfg.theme;
+              inherit (cfg) theme;
             };
           }
         ]
