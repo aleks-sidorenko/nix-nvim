@@ -20,7 +20,8 @@ lib.mkIf config.development.rust.enable {
                 enable = true;
               };
             };
-            checkOnSave = {
+            checkOnSave = true;
+            check = {
               command = "clippy";
             };
             procMacro = {
