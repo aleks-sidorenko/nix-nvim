@@ -12,7 +12,11 @@
       add_blank_line_at_top = false;
 
       filesystem = {
-        bind_to_cwd = false;
+        bind_to_cwd = true;
+        cwd_target = {
+          sidebar = "tab";
+          current = "window";
+        };
         follow_current_file = {
           enabled = true;
         };
