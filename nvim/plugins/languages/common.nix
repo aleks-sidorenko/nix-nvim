@@ -113,18 +113,13 @@
             desc = "Rename";
           };
         };
+        # Diagnostic navigation (`]d`/`[d`, severity-specific) lives in
+        # nvim/keymaps.nix — it uses vim.diagnostic.jump, which needs a `count`
+        # arg the LSP-module shorthand can't express.
         diagnostic = {
           "<leader>cd" = {
             action = "open_float";
             desc = "Line Diagnostics";
-          };
-          "[d" = {
-            action = "goto_next";
-            desc = "Next Diagnostic";
-          };
-          "]d" = {
-            action = "goto_prev";
-            desc = "Previous Diagnostic";
           };
         };
       };

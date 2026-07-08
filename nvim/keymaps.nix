@@ -454,18 +454,14 @@
     }
 
     # Diagnostics
-    {
-      mode = "n";
-      key = "<leader>cd";
-      action = "vim.diagnostic.open_float";
-      options = {
-        desc = "Line Diagnostics";
-      };
-    }
+    # `<leader>cd` (line diagnostics) is defined in
+    # nvim/plugins/languages/common.nix via the LSP module. Navigation uses
+    # vim.diagnostic.jump (Neovim 0.11+); count>0 forward, count<0 backward,
+    # float=true opens the diagnostic float on landing.
     {
       mode = "n";
       key = "]d";
-      action = "diagnostic_goto(true)";
+      action.__raw = "function() vim.diagnostic.jump({ count = 1, float = true }) end";
       options = {
         desc = "Next Diagnostic";
       };
@@ -473,7 +469,7 @@
     {
       mode = "n";
       key = "[d";
-      action = "diagnostic_goto(false)";
+      action.__raw = "function() vim.diagnostic.jump({ count = -1, float = true }) end";
       options = {
         desc = "Prev Diagnostic";
       };
@@ -481,7 +477,7 @@
     {
       mode = "n";
       key = "]e";
-      action = "diagnostic_goto(true 'ERROR')";
+      action.__raw = "function() vim.diagnostic.jump({ count = 1, float = true, severity = vim.diagnostic.severity.ERROR }) end";
       options = {
         desc = "Next Error";
       };
@@ -489,7 +485,7 @@
     {
       mode = "n";
       key = "[e";
-      action = "diagnostic_goto(false 'ERROR')";
+      action.__raw = "function() vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.ERROR }) end";
       options = {
         desc = "Prev Error";
       };
@@ -497,7 +493,7 @@
     {
       mode = "n";
       key = "]w";
-      action = "diagnostic_goto(true 'WARN')";
+      action.__raw = "function() vim.diagnostic.jump({ count = 1, float = true, severity = vim.diagnostic.severity.WARN }) end";
       options = {
         desc = "Next Warning";
       };
@@ -505,7 +501,7 @@
     {
       mode = "n";
       key = "[w";
-      action = "diagnostic_goto(false 'WARN')";
+      action.__raw = "function() vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.WARN }) end";
       options = {
         desc = "Prev Warning";
       };
