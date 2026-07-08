@@ -50,6 +50,13 @@ nix-nvim = {
 | `ai.claude-code.enable` | bool | Claude Code AI assistant |
 | `theme` | enum | Colorscheme — currently `"catppuccin"` |
 
+## Hotkeys
+
+Keybindings are documented in [`docs/hotkeys.md`](./docs/hotkeys.md) — a full reference
+covering motions, windows, buffers, LSP, Telescope, terminal, git, completion,
+Treesitter text objects, and the opt-in AI and language-specific bindings. The leader
+key is `Space`.
+
 ## Advanced
 
 `extraConfig` accepts a nixvim module or a list of modules, merged via `.extend`. Use it to override or extend anything in the base config:
