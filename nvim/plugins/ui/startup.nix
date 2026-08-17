@@ -43,7 +43,7 @@
           ]
           [
             "󰍉 Find Word"
-            "Telescope live_grep"
+            "Telescope live_grep_args"
             "fr"
           ]
           [
