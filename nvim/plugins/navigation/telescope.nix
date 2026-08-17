@@ -21,6 +21,29 @@
           };
         };
         sorting_strategy = "ascending";
+        # Navigate results with C-j/C-k; C-n/C-p are intentionally disabled.
+        mappings = {
+          i = {
+            "<C-j>".__raw = "require('telescope.actions').move_selection_next";
+            "<C-k>".__raw = "require('telescope.actions').move_selection_previous";
+            "<C-n>" = false;
+            "<C-p>" = false;
+            # Splits: C-- horizontal, C-| vertical (Ctrl+Shift+\, delivered as
+            # <C-S-Bslash>; the <C-|>/<C-Bar> notations don't reach Neovim).
+            # C-v/C-x (telescope defaults) are retained — these are additive.
+            "<C-->".__raw = "require('telescope.actions').select_horizontal";
+            "<C-S-Bslash>".__raw = "require('telescope.actions').select_vertical";
+          };
+          n = {
+            "<C-j>".__raw = "require('telescope.actions').move_selection_next";
+            "<C-k>".__raw = "require('telescope.actions').move_selection_previous";
+            "<C-n>" = false;
+            "<C-p>" = false;
+            # Splits mirror insert mode: C-- horizontal, C-| vertical.
+            "<C-->".__raw = "require('telescope.actions').select_horizontal";
+            "<C-S-Bslash>".__raw = "require('telescope.actions').select_vertical";
+          };
+        };
       };
       pickers = {
         find_files = {
