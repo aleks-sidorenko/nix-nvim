@@ -19,6 +19,21 @@
         };
         sorting_strategy = "ascending";
       };
+      pickers = {
+        find_files = {
+          # fd respects .gitignore by default; --hidden surfaces dotfiles,
+          # --exclude .git keeps the git internals out.
+          find_command = [
+            "fd"
+            "--type"
+            "f"
+            "--hidden"
+            "--strip-cwd-prefix"
+            "--exclude"
+            ".git"
+          ];
+        };
+      };
     };
     keymaps = {
       "<leader><space>" = {
