@@ -801,5 +801,79 @@
       };
     }
 
+    # Tab navigation (Leader+Tab+N for direct access)
+    {
+      mode = "n";
+      key = "<leader><tab>1";
+      action = "<cmd>tabnext 1<cr>";
+      options = {
+        desc = "Go to tab 1";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>2";
+      action = "<cmd>tabnext 2<cr>";
+      options = {
+        desc = "Go to tab 2";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>3";
+      action = "<cmd>tabnext 3<cr>";
+      options = {
+        desc = "Go to tab 3";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>4";
+      action = "<cmd>tabnext 4<cr>";
+      options = {
+        desc = "Go to tab 4";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>5";
+      action = "<cmd>tabnext 5<cr>";
+      options = {
+        desc = "Go to tab 5";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>6";
+      action = "<cmd>tabnext 6<cr>";
+      options = {
+        desc = "Go to tab 6";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>7";
+      action = "<cmd>tabnext 7<cr>";
+      options = {
+        desc = "Go to tab 7";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>8";
+      action = "<cmd>tabnext 8<cr>";
+      options = {
+        desc = "Go to tab 8";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><tab>9";
+      action = "<cmd>tabnext 9<cr>";
+      options = {
+        desc = "Go to tab 9";
+      };
+    }
+
   ];
 }
