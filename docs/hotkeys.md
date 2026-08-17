@@ -105,6 +105,7 @@ assistants, language toolchains). These are marked **opt-in** below.
 | Previous tab | `Leader+Tab+[` |
 | First tab | `Leader+Tab+f` |
 | Last tab | `Leader+Tab+l` |
+| Go to tab 1–9 | `Leader+Tab+1` … `Leader+Tab+9` |
 
 ---
 
