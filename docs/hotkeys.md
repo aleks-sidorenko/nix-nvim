@@ -177,17 +177,24 @@ assistants, language toolchains). These are marked **opt-in** below.
 
 ## Find — Telescope (`Leader+f`, `Leader+s`)
 
-| Action | Binding |
-|---|---|
-| Find project files | `Leader+Space` / `Leader+ff` |
-| Search git files | `C-p` |
-| Grep (root dir) | `Leader+/` / `Leader+fr` |
-| Command history | `Leader+:` |
-| Buffers | `Leader+b` / `Leader+fb` |
-| Recent files | `Leader+fg` |
-| Resume last picker | `Leader+fR` / `Leader+sR` |
-| File browser | `Leader+fe` |
-| File browser (current file dir) | `Leader+fE` |
+| Action | Binding | Modes |
+|---|---|---|
+| Find project files | `Leader+Space` / `Leader+ff` | n |
+| Find files (current file dir) | `Leader+fF` | n |
+| Search git files | `C-p` | n |
+| Grep (args-enabled) | `Leader+/` / `Leader+fr` | n |
+| Grep word under cursor / selection | `Leader+fw` | n, x |
+| Command history | `Leader+:` | n |
+| Buffers | `Leader+b` / `Leader+fb` | n |
+| Recent files | `Leader+fg` | n |
+| Resume last picker | `Leader+fR` / `Leader+sR` | n |
+| File browser | `Leader+fe` | n |
+| File browser (current file dir) | `Leader+fE` | n |
+
+> **Grep (args-enabled):** `Leader+/` and `Leader+fr` use the `live_grep_args`
+> extension — type a pattern, then append ripgrep flags/globs after a space
+> (e.g. `foo --iglob **/*.nix`) or wrap an exact phrase in quotes. `Leader+fw`
+> greps the word under the cursor (normal) or the current selection (visual).
 
 ### Search pickers (`Leader+s`)
 
@@ -223,6 +230,13 @@ assistants, language toolchains). These are marked **opt-in** below.
 | Toggle Neo-tree | `Leader+e` | |
 | Toggle Undotree | `Leader+ut` | |
 | Toggle Markdown preview | `Leader+mp` | |
+
+### Inside Neo-tree
+
+| Action | Binding | Notes |
+|---|---|---|
+| Fuzzy filter | `/` | Live filter; navigate matches with `C-j`/`C-k` (or arrows), `CR` opens |
+| Toggle hidden files | `H` | Shows/hides dotfiles and gitignored items |
 
 ---
 
