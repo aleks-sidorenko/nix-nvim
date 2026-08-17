@@ -50,6 +50,8 @@ assistants, language toolchains). These are marked **opt-in** below.
 | Action | Binding | Modes | Notes |
 |---|---|---|---|
 | Focus left / down / up / right | `C-h/j/k/l` | n, t | |
+| Split below (horizontal) | `C--` | n | Also `Leader+-` / `Leader+w-` |
+| Split right (vertical) | `C-\|` | n | Also `Leader+\|` / `Leader+w\|` |
 | Decrease height | `C-Up` | n | |
 | Increase height | `C-Down` | n | |
 | Increase width | `C-Left` | n | |
@@ -195,6 +197,19 @@ assistants, language toolchains). These are marked **opt-in** below.
 > extension — type a pattern, then append ripgrep flags/globs after a space
 > (e.g. `foo --iglob **/*.nix`) or wrap an exact phrase in quotes. `Leader+fw`
 > greps the word under the cursor (normal) or the current selection (visual).
+
+### In-picker navigation
+
+| Action | Binding | Modes |
+|---|---|---|
+| Next / previous result | `C-j` / `C-k` | i, n |
+| Open in vertical split | `C-\|` / `C-v` | i, n |
+| Open in horizontal split | `C--` / `C-x` | i, n |
+
+> `C-n`/`C-p` are disabled inside pickers — use `C-j`/`C-k` (or the arrows).
+> Splits mirror the editor: `C--` = horizontal, `C-|` = vertical (`Ctrl+Shift+\`,
+> delivered as `<C-S-Bslash>`; the `<C-|>`/`<C-Bar>` notations don't reach
+> Neovim). `C-v`/`C-x` (Telescope defaults) are retained.
 
 ### Search pickers (`Leader+s`)
 
