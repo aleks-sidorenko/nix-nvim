@@ -20,6 +20,15 @@
         follow_current_file = {
           enabled = true;
         };
+        window = {
+          mappings = {
+            "H" = "toggle_hidden";
+          };
+          fuzzy_finder_mappings = {
+            "<C-j>" = "move_cursor_down";
+            "<C-k>" = "move_cursor_up";
+          };
+        };
       };
 
       default_component_configs = {

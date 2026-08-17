@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   plugins.telescope = {
     enable = true;
@@ -6,6 +7,9 @@
         enable = true;
       };
       fzf-native = {
+        enable = true;
+      };
+      live-grep-args = {
         enable = true;
       };
     };
@@ -18,18 +22,30 @@
         };
         sorting_strategy = "ascending";
       };
+      pickers = {
+        find_files = {
+          # fd respects .gitignore by default; --hidden surfaces dotfiles,
+          # --exclude .git keeps the git internals out.
+          find_command = [
+            "fd"
+            "--type"
+            "f"
+            "--hidden"
+            "--strip-cwd-prefix"
+            "--exclude"
+            ".git"
+          ];
+        };
+        colorscheme = {
+          enable_preview = true;
+        };
+      };
     };
     keymaps = {
       "<leader><space>" = {
         action = "find_files";
         options = {
           desc = "Find project files";
-        };
-      };
-      "<leader>/" = {
-        action = "live_grep";
-        options = {
-          desc = "Grep (root dir)";
         };
       };
       "<leader>:" = {
@@ -48,12 +64,6 @@
         action = "find_files";
         options = {
           desc = "Find project files";
-        };
-      };
-      "<leader>fr" = {
-        action = "live_grep";
-        options = {
-          desc = "Find text";
         };
       };
       "<leader>fR" = {
@@ -172,7 +182,43 @@
       };
     };
   };
+  extraPackages = with pkgs; [
+    ripgrep
+    fd
+  ];
   keymaps = [
+    {
+      mode = "n";
+      key = "<leader>/";
+      action = "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>";
+      options = {
+        desc = "Grep (args)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fr";
+      action = "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>";
+      options = {
+        desc = "Find text (args)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fw";
+      action = "<cmd>lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor()<cr>";
+      options = {
+        desc = "Grep word under cursor";
+      };
+    }
+    {
+      mode = "x";
+      key = "<leader>fw";
+      action = "<cmd>lua require('telescope-live-grep-args.shortcuts').grep_visual_selection()<cr>";
+      options = {
+        desc = "Grep selection";
+      };
+    }
     {
       mode = "n";
       key = "<leader>sd";
@@ -197,14 +243,13 @@
         desc = "File browser";
       };
     }
-  ];
-  extraConfigLua = ''
-    require("telescope").setup{
-      pickers = {
-        colorscheme = {
-          enable_preview = true
-        }
-      }
+    {
+      mode = "n";
+      key = "<leader>fF";
+      action = "<cmd>Telescope find_files cwd=%:p:h<cr>";
+      options = {
+        desc = "Find files (current file dir)";
+      };
     }
-  '';
+  ];
 }
