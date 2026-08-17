@@ -875,5 +875,27 @@
       };
     }
 
+    # Window splits — Ctrl fast path; mirrors Telescope's C--/C-| and the
+    # <leader>-/<leader>| splits. C-- horizontal, C-| vertical (Ctrl+Shift+\,
+    # delivered as <C-S-Bslash>). Ghostty no longer intercepts these.
+    {
+      mode = "n";
+      key = "<C-->";
+      action = "<C-w>s";
+      options = {
+        desc = "Split Window Below";
+        remap = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-S-Bslash>";
+      action = "<C-w>v";
+      options = {
+        desc = "Split Window Right";
+        remap = true;
+      };
+    }
+
   ];
 }
