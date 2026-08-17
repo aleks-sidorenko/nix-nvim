@@ -9,6 +9,9 @@
       fzf-native = {
         enable = true;
       };
+      live-grep-args = {
+        enable = true;
+      };
     };
     settings = {
       defaults = {
@@ -42,12 +45,6 @@
           desc = "Find project files";
         };
       };
-      "<leader>/" = {
-        action = "live_grep";
-        options = {
-          desc = "Grep (root dir)";
-        };
-      };
       "<leader>:" = {
         action = "command_history";
         options = {
@@ -64,12 +61,6 @@
         action = "find_files";
         options = {
           desc = "Find project files";
-        };
-      };
-      "<leader>fr" = {
-        action = "live_grep";
-        options = {
-          desc = "Find text";
         };
       };
       "<leader>fR" = {
@@ -193,6 +184,38 @@
     fd
   ];
   keymaps = [
+    {
+      mode = "n";
+      key = "<leader>/";
+      action = "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>";
+      options = {
+        desc = "Grep (args)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fr";
+      action = "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>";
+      options = {
+        desc = "Find text (args)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fw";
+      action = "<cmd>lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor()<cr>";
+      options = {
+        desc = "Grep word under cursor";
+      };
+    }
+    {
+      mode = "x";
+      key = "<leader>fw";
+      action = "<cmd>lua require('telescope-live-grep-args.shortcuts').grep_visual_selection()<cr>";
+      options = {
+        desc = "Grep selection";
+      };
+    }
     {
       mode = "n";
       key = "<leader>sd";
