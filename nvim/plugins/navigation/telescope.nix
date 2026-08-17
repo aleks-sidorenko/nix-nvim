@@ -36,6 +36,9 @@
             ".git"
           ];
         };
+        colorscheme = {
+          enable_preview = true;
+        };
       };
     };
     keymaps = {
@@ -243,19 +246,10 @@
     {
       mode = "n";
       key = "<leader>fF";
-      action = "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand('%:p:h') })<cr>";
+      action = "<cmd>Telescope find_files cwd=%:p:h<cr>";
       options = {
         desc = "Find files (current file dir)";
       };
     }
   ];
-  extraConfigLua = ''
-    require("telescope").setup{
-      pickers = {
-        colorscheme = {
-          enable_preview = true
-        }
-      }
-    }
-  '';
 }
