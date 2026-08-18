@@ -276,6 +276,43 @@
       };
     }
 
+    # Window move / relocate (Ctrl+Alt+hjkl) — the "structure" tier,
+    # mirrors the WM's Super+Shift+hjkl. Reachable now that Ghostty freed
+    # Alt+Ctrl+hjkl (formerly split-resize). Needs the Kitty keyboard
+    # protocol (Ghostty + Neovim both support it).
+    {
+      mode = "n";
+      key = "<C-A-h>";
+      action = "<C-w>H";
+      options = {
+        desc = "Move Window Far Left";
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-A-j>";
+      action = "<C-w>J";
+      options = {
+        desc = "Move Window to Bottom";
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-A-k>";
+      action = "<C-w>K";
+      options = {
+        desc = "Move Window to Top";
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-A-l>";
+      action = "<C-w>L";
+      options = {
+        desc = "Move Window Far Right";
+      };
+    }
+
     # Move lines (Ctrl+Shift+</> — shift/move connotation, unbound in Ghostty)
     {
       mode = "n";
@@ -604,6 +641,44 @@
         remap = true;
       };
     }
+    # Relocate window — Leader+w{H,J,K,L}, twins the C-A-hjkl chords
+    # (lowercase focuses, uppercase moves — mirrors vim's <C-w>h / <C-w>H)
+    {
+      mode = "n";
+      key = "<leader>wH";
+      action = "<C-w>H";
+      options = {
+        desc = "Move Window Far Left";
+        remap = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>wJ";
+      action = "<C-w>J";
+      options = {
+        desc = "Move Window to Bottom";
+        remap = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>wK";
+      action = "<C-w>K";
+      options = {
+        desc = "Move Window to Top";
+        remap = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>wL";
+      action = "<C-w>L";
+      options = {
+        desc = "Move Window Far Right";
+        remap = true;
+      };
+    }
     {
       mode = "n";
       key = "<leader>wp";
@@ -752,6 +827,17 @@
     }
 
     # Tabs
+    # Fast new-tab (browser/terminal C-t); twin of <leader><tab>n. Shadows the
+    # normal-mode tag-stack pop, which C-o covers. Next tab: gt (gT is LSP
+    # type-definition here); previous tab: <leader><tab>[.
+    {
+      mode = "n";
+      key = "<C-t>";
+      action = "<cmd>tabnew<cr>";
+      options = {
+        desc = "New Tab";
+      };
+    }
     {
       mode = "n";
       key = "<leader><tab>l";
