@@ -263,6 +263,7 @@ assistants, language toolchains). These are marked **opt-in** below.
 | Toggle vertical terminal | `Leader+t\|` |
 | Toggle horizontal terminal | `Leader+t-` |
 | Toggle floating terminal | `Leader+tf` |
+| Toggle terminal in tab | `Leader+tt` |
 
 ---
 

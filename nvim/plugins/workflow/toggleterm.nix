@@ -38,6 +38,14 @@ _: {
         desc = "Toggle Floating Terminal Window";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>tt";
+      action = "<cmd>ToggleTerm direction=tab<cr>";
+      options = {
+        desc = "Toggle Terminal in Tab";
+      };
+    }
 
   ];
 }
