@@ -50,6 +50,7 @@ assistants, language toolchains). These are marked **opt-in** below.
 | Action | Binding | Modes | Notes |
 |---|---|---|---|
 | Focus left / down / up / right | `C-h/j/k/l` | n, t | |
+| Move window left / down / up / right | `C-A-h/j/k/l` | n | Relocate split (`<C-w>HJKL`); needs Kitty keyboard protocol |
 | Split below (horizontal) | `C--` | n | Also `Leader+-` / `Leader+w-` |
 | Split right (vertical) | `C-\|` | n | Also `Leader+\|` / `Leader+w\|` |
 | Decrease height | `C-Up` | n | |
@@ -62,6 +63,7 @@ assistants, language toolchains). These are marked **opt-in** below.
 | Action | Binding | Notes |
 |---|---|---|
 | Focus left / down / up / right | `Leader+wh/wj/wk/wl` | Mirrors `C-h/j/k/l` |
+| Move window left / down / up / right | `Leader+wH/wJ/wK/wL` | Mirrors `C-A-h/j/k/l` (uppercase = move) |
 | Previous window | `Leader+wp` | |
 | Close window | `Leader+wq` | |
 | Split right | `Leader+w\|` | Also `Leader+\|` |
@@ -99,15 +101,17 @@ assistants, language toolchains). These are marked **opt-in** below.
 
 ## Tabs (`Leader+Tab`)
 
-| Action | Binding |
-|---|---|
-| New tab | `Leader+Tab+n` |
-| Close tab | `Leader+Tab+q` |
-| Next tab | `Leader+Tab+]` |
-| Previous tab | `Leader+Tab+[` |
-| First tab | `Leader+Tab+f` |
-| Last tab | `Leader+Tab+l` |
-| Go to tab 1–9 | `Leader+Tab+1` … `Leader+Tab+9` |
+| Action | Binding | Notes |
+|---|---|---|
+| New tab | `C-t` | Fast; twin of `Leader+Tab+n` (shadows tag-pop, use `C-o` to jump back) |
+| New tab | `Leader+Tab+n` | |
+| Close tab | `Leader+Tab+q` | |
+| Next tab | `gt` | Vim-native, fast (`gT` is remapped to LSP type-definition) |
+| Next tab | `Leader+Tab+]` | |
+| Previous tab | `Leader+Tab+[` | No fast key — `gT` is taken by type-definition |
+| First tab | `Leader+Tab+f` | |
+| Last tab | `Leader+Tab+l` | |
+| Go to tab 1–9 | `Leader+Tab+1` … `Leader+Tab+9` | Or `{N}gt` (native) |
 
 ---
 
