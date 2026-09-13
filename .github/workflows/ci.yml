@@ -18,7 +18,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: DeterminateSystems/nix-installer-action@v22
-      - uses: DeterminateSystems/magic-nix-cache-action@v14
       - run: nix flake check --all-systems --show-trace
 
   format:
@@ -27,7 +26,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: DeterminateSystems/nix-installer-action@v22
-      - uses: DeterminateSystems/magic-nix-cache-action@v14
       - run: nix fmt -- --ci
 
   build:
@@ -37,5 +35,4 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: DeterminateSystems/nix-installer-action@v22
-      - uses: DeterminateSystems/magic-nix-cache-action@v14
       - run: nix build .#packages.x86_64-linux.default --show-trace
