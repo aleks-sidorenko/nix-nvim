@@ -28,6 +28,7 @@
           pkgs = import inputs.nixpkgs {
             inherit system;
             config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [ "cmp-emoji" ];
+            overlays = import ./overlays.nix;
           };
         in
         {

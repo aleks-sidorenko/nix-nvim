@@ -9,7 +9,9 @@ let
   cfg = config.programs.nix-nvim;
 
   basePackage = nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
-    inherit pkgs; # consumer's pkgs — honours their overlays/pins
+    # consumer's pkgs — honours their overlays/pins — plus the distro's own
+    # package fixes (see overlays.nix), kept in sync with flake.nix's package.
+    pkgs = pkgs.appendOverlays (import ../../overlays.nix);
     module = ../../nvim; # bare path (same form as flake.nix's ./nvim)
   };
 in
