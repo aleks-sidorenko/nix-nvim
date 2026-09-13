@@ -26,6 +26,6 @@ lib.mkIf config.development.typescript.enable {
 
   extraPackages = with pkgs; [
     prettierd
-    nodePackages.prettier
+    prettier
   ];
 }
