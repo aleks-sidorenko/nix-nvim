@@ -21,11 +21,15 @@
       ];
 
       perSystem =
-        {
-          pkgs,
-          system,
-          ...
-        }:
+        { system, ... }:
+        let
+          # cmp-emoji is marked unfree in nixpkgs 26.05 (bundled emoji data), and the
+          # distro pulls it in, so allow just that package when building the package.
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [ "cmp-emoji" ];
+          };
+        in
         {
           packages.default = nixvim.legacyPackages.${system}.makeNixvimWithModule {
             inherit pkgs;
