@@ -43,9 +43,10 @@
         };
         command = "claude";
         keymaps = {
+          # <C-;> is the switch keymap below; the plugin's toggle would close the tab.
           toggle = {
-            normal = "<C-;>";
-            terminal = "<C-;>";
+            normal = false;
+            terminal = false;
           };
           window_navigation = true;
           scrolling = true;
@@ -67,6 +68,36 @@
   };
 
   keymaps = lib.mkIf config.plugins.claude-code.enable [
+    {
+      mode = [
+        "n"
+        "t"
+      ];
+      key = "<C-;>";
+      action.__raw = ''
+        function()
+          local function is_claude(buf)
+            return vim.bo[buf].buftype == "terminal"
+              and vim.api.nvim_buf_get_name(buf):match("claude%-code[^/]*$") ~= nil
+          end
+          if is_claude(0) then
+            if vim.fn.tabpagenr("#") > 0 then
+              vim.cmd("tabnext #")
+            end
+            return
+          end
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            if is_claude(vim.api.nvim_win_get_buf(win)) then
+              vim.api.nvim_set_current_win(win)
+              vim.cmd("startinsert")
+              return
+            end
+          end
+          vim.cmd("ClaudeCode")
+        end
+      '';
+      options.desc = "Switch to/from Claude";
+    }
     {
       key = "<leader>act";
       action = "<cmd>ClaudeCode<CR>";
