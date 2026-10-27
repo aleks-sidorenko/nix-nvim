@@ -24,8 +24,10 @@
 
       settings = {
         window = {
-          split_ratio = 0.3;
-          position = "botright";
+          # A position containing "split" is run verbatim, so this opens a tab; the
+          # full ratio stops the plugin's post-split resize from shrinking it.
+          split_ratio = 1.0;
+          position = "tab split";
           enter_insert = true;
           hide_numbers = true;
           hide_signcolumn = true;
