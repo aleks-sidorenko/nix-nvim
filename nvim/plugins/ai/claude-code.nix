@@ -43,9 +43,10 @@
         };
         command = "claude";
         keymaps = {
+          # <C-;> is the switch keymap below; the plugin's toggle would close the tab.
           toggle = {
-            normal = "<C-;>";
-            terminal = "<C-;>";
+            normal = false;
+            terminal = false;
           };
           window_navigation = true;
           scrolling = true;
@@ -72,7 +73,7 @@
         "n"
         "t"
       ];
-      key = "<C-:>";
+      key = "<C-;>";
       action.__raw = ''
         function()
           local function is_claude(buf)
