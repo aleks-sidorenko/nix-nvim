@@ -92,6 +92,10 @@
       # Hide command line unless needed
       cmdheight = 0;
 
+      # Title the terminal by project (cwd), not by the current buffer
+      title = true;
+      titlestring = "nvim: %{fnamemodify(getcwd(), ':t')}";
+
       # Remove EOB
       fillchars = {
         eob = " ";
