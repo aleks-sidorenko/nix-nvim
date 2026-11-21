@@ -4,7 +4,7 @@
   config,
   ...
 }:
-lib.mkIf config.development.typescript.enable {
+lib.mkIf config.dev.typescript.enable {
   # TypeScript LSP
   plugins.lsp.servers.ts_ls = {
     enable = true;

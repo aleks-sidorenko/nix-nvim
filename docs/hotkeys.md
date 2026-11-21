@@ -365,7 +365,7 @@ assistants, language toolchains). These are marked **opt-in** below.
 
 ## Language-Specific (opt-in)
 
-### Haskell (`development.haskell.enable`) — `Leader+h`
+### Haskell (`dev.haskell.enable`) — `Leader+h`
 
 | Action | Binding |
 |---|---|

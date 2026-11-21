@@ -5,7 +5,7 @@
 {
   # Public configuration options for this nixvim module.
   options = {
-    development = {
+    dev = {
       haskell.enable = lib.mkEnableOption "Haskell development support";
       rust.enable = lib.mkEnableOption "Rust development support";
       python.enable = lib.mkEnableOption "Python development support";
@@ -26,7 +26,7 @@
   };
 
   config = {
-    development = {
+    dev = {
       haskell.enable = lib.mkDefault false;
       rust.enable = lib.mkDefault false;
       python.enable = lib.mkDefault false;

@@ -4,7 +4,7 @@
   config,
   ...
 }:
-lib.mkIf config.development.python.enable {
+lib.mkIf config.dev.python.enable {
   # Python LSP
   plugins.lsp.servers.pyright = {
     enable = true;
