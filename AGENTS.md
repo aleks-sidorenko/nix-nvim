@@ -4,7 +4,7 @@ Guidance for coding agents working in this repository.
 
 nix-nvim is a reusable Neovim distribution built with nixvim: a package and a
 `programs.nix-nvim` home-manager module. Language support is opt-in through
-`development.<lang>.enable`.
+`dev.<lang>.enable`.
 
 ## Language support and toolchains
 
@@ -25,6 +25,6 @@ project its toolchain through a per-project stack (`use_stack` in the project's
 - No code or user docs name a consumer's mechanism: no stacks, direnv, dev
   shells, hosts or users.
 - A new language: `nvim/plugins/languages/<lang>.nix` gated on
-  `config.development.<lang>.enable`; declare the option in `nvim/default.nix`
+  `config.dev.<lang>.enable`; declare the option in `nvim/default.nix`
   and `modules/home-manager/default.nix`, and add a row to the README's options
   table.

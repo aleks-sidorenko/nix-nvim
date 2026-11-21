@@ -4,7 +4,7 @@
   config,
   ...
 }:
-lib.mkIf config.development.haskell.enable {
+lib.mkIf config.dev.haskell.enable {
   # Haskell Language Server with advanced tooling
   plugins.haskell-tools = {
     enable = true;

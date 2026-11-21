@@ -19,7 +19,7 @@ in
   options.programs.nix-nvim = {
     enable = lib.mkEnableOption "nix-nvim Neovim distribution";
 
-    development = {
+    dev = {
       haskell.enable = lib.mkEnableOption "Haskell support";
       rust.enable = lib.mkEnableOption "Rust support";
       python.enable = lib.mkEnableOption "Python support";
@@ -60,14 +60,14 @@ in
         [
           {
             config = {
-              development = {
-                haskell.enable = lib.mkIf cfg.development.haskell.enable (lib.mkForce true);
-                rust.enable = lib.mkIf cfg.development.rust.enable (lib.mkForce true);
-                python.enable = lib.mkIf cfg.development.python.enable (lib.mkForce true);
-                go.enable = lib.mkIf cfg.development.go.enable (lib.mkForce true);
-                typescript.enable = lib.mkIf cfg.development.typescript.enable (lib.mkForce true);
-                scala.enable = lib.mkIf cfg.development.scala.enable (lib.mkForce true);
-                java.enable = lib.mkIf cfg.development.java.enable (lib.mkForce true);
+              dev = {
+                haskell.enable = lib.mkIf cfg.dev.haskell.enable (lib.mkForce true);
+                rust.enable = lib.mkIf cfg.dev.rust.enable (lib.mkForce true);
+                python.enable = lib.mkIf cfg.dev.python.enable (lib.mkForce true);
+                go.enable = lib.mkIf cfg.dev.go.enable (lib.mkForce true);
+                typescript.enable = lib.mkIf cfg.dev.typescript.enable (lib.mkForce true);
+                scala.enable = lib.mkIf cfg.dev.scala.enable (lib.mkForce true);
+                java.enable = lib.mkIf cfg.dev.java.enable (lib.mkForce true);
               };
               ai = {
                 copilot.enable = lib.mkIf cfg.ai.copilot.enable (lib.mkForce true);

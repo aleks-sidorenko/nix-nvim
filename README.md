@@ -28,7 +28,7 @@ nix-nvim = {
   imports = [ inputs.nix-nvim.homeManagerModules.default ];
   programs.nix-nvim = {
     enable = true;
-    development = { rust.enable = true; go.enable = true; };
+    dev = { rust.enable = true; go.enable = true; };
     ai.claude-code.enable = true;
     theme = "catppuccin";
   };
@@ -39,13 +39,13 @@ nix-nvim = {
 
 | Option | Type | Description |
 |--------|------|-------------|
-| `development.haskell.enable` | bool | Haskell LSP + tooling |
-| `development.rust.enable` | bool | Rust LSP + tooling |
-| `development.python.enable` | bool | Python LSP + tooling |
-| `development.go.enable` | bool | Go LSP + tooling |
-| `development.typescript.enable` | bool | TypeScript LSP + tooling |
-| `development.scala.enable` | bool | Scala LSP + tooling |
-| `development.java.enable` | bool | Java LSP + tooling |
+| `dev.haskell.enable` | bool | Haskell LSP + tooling |
+| `dev.rust.enable` | bool | Rust LSP + tooling |
+| `dev.python.enable` | bool | Python LSP + tooling |
+| `dev.go.enable` | bool | Go LSP + tooling |
+| `dev.typescript.enable` | bool | TypeScript LSP + tooling |
+| `dev.scala.enable` | bool | Scala LSP + tooling |
+| `dev.java.enable` | bool | Java LSP + tooling |
 | `ai.copilot.enable` | bool | GitHub Copilot AI assistant |
 | `ai.claude-code.enable` | bool | Claude Code AI assistant |
 | `theme` | enum | Colorscheme — currently `"catppuccin"` |

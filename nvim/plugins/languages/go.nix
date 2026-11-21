@@ -4,7 +4,7 @@
   config,
   ...
 }:
-lib.mkIf config.development.go.enable {
+lib.mkIf config.dev.go.enable {
   # Go LSP
   plugins.lsp.servers.gopls = {
     enable = true;

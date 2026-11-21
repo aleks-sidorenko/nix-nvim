@@ -4,7 +4,7 @@
   config,
   ...
 }:
-lib.mkIf config.development.rust.enable {
+lib.mkIf config.dev.rust.enable {
   # Rust analyzer with enhanced tooling
   plugins.rustaceanvim = {
     enable = true;
